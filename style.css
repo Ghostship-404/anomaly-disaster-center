@@ -1,26 +1,15 @@
-/* =========================
-   Global Theme
-========================= */
-
 :root {
   --bg: #090a0c;
-  --bg-soft: #101216;
   --panel: #15171d;
-  --panel-light: #1b1e26;
-
-  --line: rgba(219, 213, 202, 0.14);
-  --line-strong: rgba(219, 213, 202, 0.28);
-
+  --panel-deep: #0d0e12;
+  --line: rgba(219, 213, 202, 0.16);
+  --line-strong: rgba(219, 213, 202, 0.32);
   --text: #e7e0d4;
-  --muted: #a9a195;
-  --faint: #756f66;
-
+  --muted: #aaa195;
+  --faint: #766e64;
+  --paper: #f0e7d8;
   --accent: #b23a36;
-  --accent-soft: rgba(178, 58, 54, 0.18);
-  --accent-mid: rgba(178, 58, 54, 0.42);
   --accent-dark: #4b1010;
-
-  --paper: #d8d0c0;
 }
 
 * {
@@ -35,15 +24,11 @@ body {
   margin: 0;
   color: var(--text);
   background:
-    radial-gradient(circle at 20% 0%, rgba(178, 58, 54, 0.18), transparent 34%),
-    linear-gradient(180deg, #08090b 0%, #101116 48%, #08090b 100%);
-  font-family:
-    "Noto Serif SC",
-    "Source Han Serif SC",
-    "Songti SC",
-    "SimSun",
-    serif;
+    radial-gradient(circle at 50% 0%, rgba(178, 58, 54, 0.20), transparent 38%),
+    linear-gradient(180deg, #08090b 0%, #101116 50%, #08090b 100%);
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
   line-height: 1.85;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -53,13 +38,15 @@ body::before {
   pointer-events: none;
   opacity: 0.055;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
   background-size: 36px 36px;
 }
 
-a {
+a,
+a:visited {
   color: inherit;
+  text-decoration: none;
 }
 
 p {
@@ -73,47 +60,45 @@ h3 {
   font-weight: 500;
 }
 
-/* =========================
-   Navigation
-========================= */
+/* 顶部导航 */
 
 .top-nav {
-  width: 100%;
-  padding: 22px 56px;
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 26px 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  border-bottom: 1px solid var(--line);
+  gap: 14px;
+  text-align: center;
 }
 
 .fixed-nav {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(9, 10, 12, 0.88);
+  background: rgba(9, 10, 12, 0.90);
   backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
 }
 
 .logo {
   color: var(--paper);
-  text-decoration: none;
-  font-size: 18px;
-  letter-spacing: 5px;
-  white-space: nowrap;
+  font-size: 20px;
+  letter-spacing: 6px;
 }
 
 .nav-links {
   display: flex;
-  gap: 24px;
+  justify-content: center;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  gap: 18px;
 }
 
-.nav-links a {
+.nav-links a,
+.nav-links a:visited {
   color: var(--muted);
   font-size: 14px;
-  text-decoration: none;
   letter-spacing: 1px;
 }
 
@@ -121,31 +106,31 @@ h3 {
   color: var(--paper);
 }
 
-/* =========================
-   Hero / Homepage
-========================= */
+/* 首页标题 */
 
 .hero {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background:
-    linear-gradient(90deg, rgba(9, 10, 12, 0.98), rgba(9, 10, 12, 0.76), rgba(9, 10, 12, 0.98)),
-    radial-gradient(circle at 65% 45%, rgba(178, 58, 54, 0.28), transparent 34%);
+    linear-gradient(180deg, rgba(9,10,12,0.86), rgba(9,10,12,0.96)),
+    radial-gradient(circle at 50% 42%, rgba(178,58,54,0.28), transparent 36%);
 }
 
 .hero-content {
   flex: 1;
-  width: min(1180px, calc(100% - 48px));
+  width: min(900px, calc(100% - 40px));
   margin: 0 auto;
+  padding: 90px 0 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 80px 0 120px;
+  align-items: center;
+  text-align: center;
 }
 
 .eyebrow {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   color: var(--accent);
   font-family: "Courier New", monospace;
   font-size: 13px;
@@ -154,31 +139,31 @@ h3 {
 }
 
 .hero h1 {
-  max-width: 900px;
   color: var(--paper);
-  font-size: clamp(64px, 11vw, 142px);
-  line-height: 0.96;
+  font-size: clamp(60px, 11vw, 124px);
+  line-height: 1;
   letter-spacing: 12px;
+  text-align: center;
 }
 
 .hero-text {
-  max-width: 720px;
-  margin: 36px 0 0;
+  max-width: 760px;
+  margin: 34px auto 0;
   color: var(--muted);
   font-size: 20px;
   line-height: 1.9;
+  text-align: center;
 }
 
 .hero-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
   margin-top: 46px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-/* =========================
-   Buttons
-========================= */
+/* 按钮 */
 
 .primary-button,
 .secondary-button {
@@ -187,38 +172,34 @@ h3 {
   justify-content: center;
   min-height: 46px;
   padding: 0 24px;
-  text-decoration: none;
-  letter-spacing: 2px;
-  font-size: 14px;
   border: 1px solid var(--line-strong);
+  color: var(--paper);
+  font-size: 14px;
+  letter-spacing: 2px;
   transition: 0.18s ease;
 }
 
 .primary-button {
-  color: #f4eee3;
   background: linear-gradient(135deg, var(--accent-dark), rgba(178, 58, 54, 0.52));
   border-color: rgba(178, 58, 54, 0.65);
 }
 
 .secondary-button {
-  color: var(--paper);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .primary-button:hover,
 .secondary-button:hover {
   transform: translateY(-1px);
-  border-color: rgba(216, 208, 192, 0.5);
+  border-color: rgba(240, 231, 216, 0.55);
 }
 
-/* =========================
-   Page Layout
-========================= */
+/* 页面主体 */
 
 .page {
-  width: min(1120px, calc(100% - 48px));
+  width: min(1000px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 86px 0;
+  padding: 76px 0;
 }
 
 .subpage {
@@ -227,6 +208,7 @@ h3 {
 
 .page-title {
   padding: 60px 0 70px;
+  text-align: center;
   border-bottom: 1px solid var(--line);
 }
 
@@ -239,26 +221,25 @@ h3 {
 
 .page-title p:last-child {
   max-width: 720px;
-  margin-top: 28px;
+  margin: 28px auto 0;
   color: var(--muted);
   font-size: 19px;
 }
 
-/* =========================
-   Homepage Intro Cards
-========================= */
+/* 首页三张卡 */
 
 .intro-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 22px;
   margin-bottom: 64px;
 }
 
 .intro-card {
-  min-height: 270px;
-  padding: 28px;
-  background: linear-gradient(180deg, rgba(27, 30, 38, 0.94), rgba(15, 17, 22, 0.94));
+  min-height: 260px;
+  padding: 34px 28px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(27, 30, 38, 0.95), rgba(13, 14, 18, 0.95));
   border: 1px solid var(--line);
 }
 
@@ -269,7 +250,7 @@ h3 {
 }
 
 .intro-card h2 {
-  margin-top: 54px;
+  margin-top: 42px;
   color: var(--paper);
   font-size: 28px;
   letter-spacing: 4px;
@@ -278,26 +259,22 @@ h3 {
 .intro-card p {
   margin: 18px 0 0;
   color: var(--muted);
+  text-align: left;
 }
 
-/* =========================
-   Content Sections
-========================= */
+/* 内容区 */
 
 .content-section {
   margin-bottom: 34px;
   padding: 42px;
-  background: rgba(21, 23, 29, 0.88);
+  background: rgba(21, 23, 29, 0.90);
   border: 1px solid var(--line);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
 }
 
 .section-heading {
-  display: grid;
-  grid-template-columns: 210px 1fr;
-  gap: 32px;
-  align-items: baseline;
-  margin-bottom: 24px;
+  margin-bottom: 34px;
+  text-align: center;
 }
 
 .section-heading h2,
@@ -305,10 +282,12 @@ h3 {
   color: var(--paper);
   font-size: 34px;
   letter-spacing: 5px;
+  text-align: center;
 }
 
 .prose {
-  max-width: 820px;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 .prose p,
@@ -320,28 +299,22 @@ h3 {
   margin-bottom: 20px;
 }
 
-.split-section {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 42px;
-}
-
-/* =========================
-   Risk / Department Cards
-========================= */
+/* 同频风险卡片 */
 
 .risk-grid,
 .department-grid {
+  width: 100%;
+  max-width: 860px;
+  margin: 30px auto 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
-  margin-top: 30px;
 }
 
 .risk-grid article,
 .department-grid article {
   padding: 24px;
-  background: rgba(10, 11, 14, 0.6);
+  background: rgba(10, 11, 14, 0.62);
   border: 1px solid var(--line);
 }
 
@@ -360,60 +333,20 @@ h3 {
   font-size: 15px;
 }
 
-.department-grid small {
+/* 异灾中心页面 */
+
+.split-section {
   display: block;
-  margin-top: 18px;
-  padding-top: 16px;
-  color: #b9a79d;
-  border-top: 1px solid var(--line);
-  line-height: 1.7;
+  text-align: center;
 }
-
-/* =========================
-   Empty State
-========================= */
-
-.empty-state {
-  padding: 36px;
-  background:
-    linear-gradient(135deg, rgba(10, 11, 14, 0.76), rgba(27, 30, 38, 0.7));
-  border: 1px dashed rgba(216, 208, 192, 0.28);
-}
-
-.empty-label {
-  margin: 0 0 12px;
-  color: var(--accent);
-  font-family: "Courier New", monospace;
-  font-size: 13px;
-  letter-spacing: 4px;
-}
-
-.empty-state h3 {
-  margin: 0 0 18px;
-  color: var(--paper);
-  font-size: 26px;
-  letter-spacing: 3px;
-  font-weight: 500;
-}
-
-.empty-state p {
-  max-width: 760px;
-  margin-bottom: 14px;
-  color: var(--muted);
-}
-
-/* =========================
-   Hotline / Organization
-========================= */
 
 .hotline-card {
+  max-width: 620px;
+  margin: 24px auto 0;
   padding: 32px;
+  text-align: center;
   background: rgba(10, 11, 14, 0.68);
   border: 1px solid rgba(178, 58, 54, 0.46);
-}
-
-.hotline-card p {
-  margin-bottom: 10px;
 }
 
 .hotline-card strong {
@@ -430,10 +363,6 @@ h3 {
   color: var(--faint);
 }
 
-/* =========================
-   Rules
-========================= */
-
 .rule-list {
   display: grid;
   gap: 12px;
@@ -443,7 +372,6 @@ h3 {
   display: grid;
   grid-template-columns: 70px 1fr;
   gap: 24px;
-  align-items: start;
   padding: 22px;
   background: rgba(10, 11, 14, 0.54);
   border: 1px solid var(--line);
@@ -452,24 +380,50 @@ h3 {
 .rule-list span {
   color: var(--accent);
   font-family: "Courier New", monospace;
-  letter-spacing: 2px;
 }
 
 .rule-list p {
   margin: 0;
 }
 
-/* =========================
-   Link Panel
-========================= */
+.empty-state {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 36px;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(10, 11, 14, 0.76), rgba(27, 30, 38, 0.7));
+  border: 1px dashed rgba(216, 208, 192, 0.28);
+}
+
+.empty-label {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 4px;
+}
+
+.empty-state h3 {
+  margin: 0 0 18px;
+  color: var(--paper);
+  font-size: 26px;
+  letter-spacing: 3px;
+}
+
+.empty-state p {
+  max-width: 760px;
+  margin: 0 auto 14px;
+}
+
+/* 跳转面板 */
 
 .link-panel {
   margin-top: 48px;
-  padding: 36px 42px;
+  padding: 38px 42px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  gap: 30px;
+  text-align: center;
   background:
     linear-gradient(135deg, rgba(75, 16, 16, 0.72), rgba(21, 23, 29, 0.9));
   border: 1px solid rgba(178, 58, 54, 0.42);
@@ -485,13 +439,12 @@ h3 {
   color: var(--muted);
 }
 
-/* =========================
-   Tables
-========================= */
+/* 表格 */
 
 .table-note {
   margin-top: 10px;
   color: var(--muted);
+  text-align: center;
 }
 
 table {
@@ -526,9 +479,7 @@ td:first-child {
   font-family: "Courier New", monospace;
 }
 
-/* =========================
-   Templates
-========================= */
+/* 模板 */
 
 .template-box {
   margin: 26px 0 42px;
@@ -547,9 +498,7 @@ td:first-child {
   color: var(--paper);
 }
 
-/* =========================
-   Footer
-========================= */
+/* 页脚 */
 
 .footer {
   padding: 42px 24px;
@@ -563,25 +512,15 @@ td:first-child {
   margin: 0;
 }
 
-/* =========================
-   Responsive
-========================= */
+/* 手机端 */
 
 @media (max-width: 860px) {
   .top-nav {
-    padding: 18px 24px;
-    align-items: flex-start;
-    flex-direction: column;
+    width: min(100% - 32px, 1100px);
   }
 
   .nav-links {
     gap: 14px;
-    justify-content: flex-start;
-  }
-
-  .hero-content,
-  .page {
-    width: min(100% - 32px, 1120px);
   }
 
   .hero h1 {
@@ -592,21 +531,22 @@ td:first-child {
     font-size: 17px;
   }
 
+  .page {
+    width: min(100% - 32px, 1000px);
+  }
+
   .intro-grid,
   .risk-grid,
-  .department-grid,
-  .split-section,
-  .section-heading {
+  .department-grid {
     grid-template-columns: 1fr;
+  }
+
+  .intro-card p {
+    text-align: center;
   }
 
   .content-section {
     padding: 28px 22px;
-  }
-
-  .link-panel {
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .rule-list article {
@@ -630,214 +570,5 @@ td:first-child {
 
   td:first-child {
     width: 100px;
-  }
-}
-
-/* =========================
-   Centered Layout Override
-   让首页整体居中显示
-========================= */
-
-body {
-  overflow-x: hidden;
-}
-
-/* 顶部导航居中 */
-.top-nav {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 24px 24px;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  border-bottom: none;
-}
-
-.logo {
-  color: var(--paper);
-  text-decoration: none;
-  font-size: 20px;
-  letter-spacing: 6px;
-}
-
-.nav-links {
-  justify-content: center;
-  gap: 18px;
-}
-
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.nav-links a:hover {
-  color: var(--paper);
-}
-
-/* 首页标题区域居中 */
-.hero {
-  min-height: auto;
-  padding-bottom: 80px;
-}
-
-.hero-content {
-  width: min(900px, calc(100% - 40px));
-  margin: 0 auto;
-  padding: 90px 0 100px;
-  text-align: center;
-  align-items: center;
-}
-
-.hero h1 {
-  max-width: 100%;
-  text-align: center;
-  font-size: clamp(58px, 10vw, 120px);
-  letter-spacing: 12px;
-}
-
-.hero-text {
-  max-width: 760px;
-  margin: 34px auto 0;
-  text-align: center;
-}
-
-.hero-actions {
-  justify-content: center;
-}
-
-/* 主体内容居中 */
-.page {
-  width: min(1000px, calc(100% - 40px));
-  margin: 0 auto;
-  padding-top: 40px;
-}
-
-/* 首页三个卡片改成居中的三栏 */
-.intro-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  margin: 0 auto 64px;
-}
-
-.intro-card {
-  min-height: 260px;
-  text-align: center;
-  padding: 34px 28px;
-}
-
-.intro-card h2 {
-  margin-top: 42px;
-}
-
-.intro-card p {
-  text-align: left;
-}
-
-/* 所有内容卡片居中 */
-.content-section {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* 标题区域居中 */
-.section-heading {
-  display: block;
-  text-align: center;
-  margin-bottom: 34px;
-}
-
-.section-heading .eyebrow {
-  text-align: center;
-}
-
-.section-heading h2,
-.content-section > h2 {
-  text-align: center;
-}
-
-/* 正文保持可读宽度 */
-.prose {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-/* 分栏模块也居中 */
-.split-section {
-  display: block;
-  text-align: center;
-}
-
-.split-section .prose {
-  text-align: left;
-  margin-top: 24px;
-}
-
-/* 风险卡片居中 */
-.risk-grid,
-.department-grid {
-  width: 100%;
-  max-width: 860px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* 链接面板居中 */
-.link-panel {
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* 表格页面居中 */
-.page-title {
-  text-align: center;
-}
-
-.page-title p:last-child {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* 防止链接显示成默认蓝色 */
-a,
-a:visited {
-  color: inherit;
-}
-
-.nav-links a,
-.nav-links a:visited {
-  color: var(--muted);
-  text-decoration: none;
-}
-
-.logo,
-.logo:visited {
-  color: var(--paper);
-  text-decoration: none;
-}
-
-/* 手机端 */
-@media (max-width: 860px) {
-  .intro-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .intro-card p {
-    text-align: center;
-  }
-
-  .hero h1 {
-    letter-spacing: 6px;
-  }
-
-  .risk-grid,
-  .department-grid {
-    grid-template-columns: 1fr;
   }
 }
