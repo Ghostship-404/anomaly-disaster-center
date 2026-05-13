@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>档案检索</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <nav class="top-nav fixed-nav">
+    <a class="logo" href="./index.html">怪异锚定</a>
+
+    <div class="nav-links">
+      <a href="./index.html">基础设定</a>
+      <a href="./center.html">异常灾害研究中心</a>
+      <a href="./standards.html">评定标准</a>
+      <a href="./archive.html">档案室</a>
+    </div>
+  </nav>
+
+  <main class="page subpage">
+    <section class="page-title">
+      <p class="eyebrow">ARCHIVE SEARCH</p>
+      <h1>档案检索</h1>
+      <p>
+        本终端仅显示低权限摘要。若检索结果出现本人姓名，请立即关闭页面并联系档案室。
+      </p>
+    </section>
+
+    <section class="content-section">
+      <div class="search-panel">
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="输入关键词：代号、姓名、部门、状态、同频对象……"
+        />
+
+        <div class="filter-buttons">
+          <button class="filter-button active" data-filter="all">全部档案</button>
+          <button class="filter-button" data-filter="staff">员工档案</button>
+          <button class="filter-button" data-filter="anomaly">怪异档案</button>
+        </div>
+      </div>
+
+      <div id="results" class="result-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>异常灾害研究中心 · 档案检索终端</p>
+  </footer>
+
+  <script>
+    const archiveData = [
+      {
+        type: "staff",
+        code: "P-001",
+        title: "锚定者档案：空缺",
+        status: "权限不足",
+        tags: ["锚定者", "外勤组", "同频", "员工档案"],
+        description: "该档案为占位记录。用于后续填写锚定者姓名、代号、同频怪异、背景与当前状态。"
+      },
+      {
+        type: "staff",
+        code: "P-002",
+        title: "外勤专员档案：空缺",
+        status: "权限不足",
+        tags: ["外勤组", "异常灾害外勤处置组", "员工档案"],
+        description: "该档案用于记录外勤组成员的任务历史、收容经验、认知残留与调岗记录。"
+      },
+      {
+        type: "staff",
+        code: "P-003",
+        title: "人力资源管理部职员档案",
+        status: "未找到",
+        tags: ["人事部", "人力资源管理部", "不存在", "员工档案"],
+        description: "未检索到任何有效职员记录。所有由人力资源管理部签发的文件仍被系统判定为有效。"
+      },
+      {
+        type: "anomaly",
+        code: "A-001",
+        title: "怪异档案：空缺",
+        status: "未收容",
+        tags: ["怪异", "恐惧", "收容", "怪异档案"],
+        description: "该档案为占位记录。用于后续填写怪异代号、收容难度、影响范围、危险程度与恐惧来源。"
+      },
+      {
+        type: "anomaly",
+        code: "A-002",
+        title: "恐惧结晶样本",
+        status: "部分收容",
+        tags: ["恐惧结晶", "同频", "凝华", "怪异档案"],
+        description: "纯黑固体结晶。长期接触可能导致非锚定者进入同频状态，并诱发怪异凝华。"
+      },
+      {
+        type: "anomaly",
+        code: "A-003",
+        title: "档案室异常记录",
+        status: "已收容",
+        tags: ["档案室", "记录", "记忆", "怪异档案"],
+        description: "部分档案内容会与职员记忆不符。中心当前采用档案优先原则，但禁止立即相信。"
+      }
+    ];
+
+    const results = document.getElementById("results");
+    const searchInput = document.getElementById("searchInput");
+    const filterButtons = document.querySelectorAll(".filter-button");
+
+    let currentFilter = "all";
+
+    const params = new URLSearchParams(window.location.search);
+    const typeParam = params.get("type");
+
+    if (typeParam === "staff" || typeParam === "anomaly") {
+      currentFilter = typeParam;
+      filterButtons.forEach(button => {
+        button.classList.toggle("active", button.dataset.filter === currentFilter);
+      });
+    }
+
+    function renderResults() {
+      const keyword = searchInput.value.trim().toLowerCase();
+
+      const filtered = archiveData.filter(item => {
+        const matchesType = currentFilter === "all" || item.type === currentFilter;
+
+        const searchableText = [
+          item.code,
+          item.title,
+          item.status,
+          item.description,
+          ...item.tags
+        ].join(" ").toLowerCase();
+
+        const matchesKeyword = searchableText.includes(keyword);
+
+        return matchesType && matchesKeyword;
+      });
+
+      results.innerHTML = "";
+
+      if (filtered.length === 0) {
+        results.innerHTML = `
+          <div class="empty-state">
+            <p class="empty-label">NO RECORD FOUND</p>
+            <h3>未检索到可访问档案</h3>
+            <p>该结果不存在，或你的权限不足以确认其存在。</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement("article");
+        card.className = "result-card";
+
+        card.innerHTML = `
+          <div class="result-meta">
+            <span>${item.code}</span>
+            <span>${item.type === "staff" ? "员工档案" : "怪异档案"}</span>
+          </div>
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+          <div class="result-footer">
+            <span>状态：${item.status}</span>
+          </div>
+        `;
+
+        results.appendChild(card);
+      });
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        currentFilter = button.dataset.filter;
+
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        renderResults();
+      });
+    });
+
+    searchInput.addEventListener("input", renderResults);
+
+    renderResults();
+  </script>
+</body>
+</html>
