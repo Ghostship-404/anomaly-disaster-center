@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+  background: #0f0f12;
+  color: #e8e8e8;
+  line-height: 1.7;
+}
+
+header {
+  padding: 80px 20px;
+  text-align: center;
+  background: #16161c;
+  border-bottom: 1px solid #333;
+}
+
+h1 {
+  font-size: 42px;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+header p {
+  color: #aaa;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+section {
+  margin-bottom: 50px;
+  padding: 25px;
+  background: #17171d;
+  border: 1px solid #2d2d35;
+  border-radius: 8px;
+}
+
+h2 {
+  border-left: 4px solid #777;
+  padding-left: 12px;
+}
