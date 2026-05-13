@@ -632,3 +632,212 @@ td:first-child {
     width: 100px;
   }
 }
+
+/* =========================
+   Centered Layout Override
+   让首页整体居中显示
+========================= */
+
+body {
+  overflow-x: hidden;
+}
+
+/* 顶部导航居中 */
+.top-nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 24px;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  border-bottom: none;
+}
+
+.logo {
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 20px;
+  letter-spacing: 6px;
+}
+
+.nav-links {
+  justify-content: center;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: var(--paper);
+}
+
+/* 首页标题区域居中 */
+.hero {
+  min-height: auto;
+  padding-bottom: 80px;
+}
+
+.hero-content {
+  width: min(900px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 90px 0 100px;
+  text-align: center;
+  align-items: center;
+}
+
+.hero h1 {
+  max-width: 100%;
+  text-align: center;
+  font-size: clamp(58px, 10vw, 120px);
+  letter-spacing: 12px;
+}
+
+.hero-text {
+  max-width: 760px;
+  margin: 34px auto 0;
+  text-align: center;
+}
+
+.hero-actions {
+  justify-content: center;
+}
+
+/* 主体内容居中 */
+.page {
+  width: min(1000px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+/* 首页三个卡片改成居中的三栏 */
+.intro-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin: 0 auto 64px;
+}
+
+.intro-card {
+  min-height: 260px;
+  text-align: center;
+  padding: 34px 28px;
+}
+
+.intro-card h2 {
+  margin-top: 42px;
+}
+
+.intro-card p {
+  text-align: left;
+}
+
+/* 所有内容卡片居中 */
+.content-section {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 标题区域居中 */
+.section-heading {
+  display: block;
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.section-heading .eyebrow {
+  text-align: center;
+}
+
+.section-heading h2,
+.content-section > h2 {
+  text-align: center;
+}
+
+/* 正文保持可读宽度 */
+.prose {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* 分栏模块也居中 */
+.split-section {
+  display: block;
+  text-align: center;
+}
+
+.split-section .prose {
+  text-align: left;
+  margin-top: 24px;
+}
+
+/* 风险卡片居中 */
+.risk-grid,
+.department-grid {
+  width: 100%;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 链接面板居中 */
+.link-panel {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 表格页面居中 */
+.page-title {
+  text-align: center;
+}
+
+.page-title p:last-child {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 防止链接显示成默认蓝色 */
+a,
+a:visited {
+  color: inherit;
+}
+
+.nav-links a,
+.nav-links a:visited {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.logo,
+.logo:visited {
+  color: var(--paper);
+  text-decoration: none;
+}
+
+/* 手机端 */
+@media (max-width: 860px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-card p {
+    text-align: center;
+  }
+
+  .hero h1 {
+    letter-spacing: 6px;
+  }
+
+  .risk-grid,
+  .department-grid {
+    grid-template-columns: 1fr;
+  }
+}
