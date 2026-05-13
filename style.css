@@ -616,3 +616,170 @@ td:first-child {
   font-size: 11px;
   letter-spacing: 3px;
 }
+
+/* =========================
+   Archive Pages
+========================= */
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.archive-card {
+  min-height: 260px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background:
+    linear-gradient(180deg, rgba(27, 30, 38, 0.92), rgba(10, 11, 14, 0.96));
+  border: 1px solid var(--line);
+  transition: 0.18s ease;
+}
+
+.archive-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(178, 58, 54, 0.58);
+}
+
+.archive-card span {
+  margin-bottom: 18px;
+  color: var(--accent);
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.archive-card h3 {
+  margin-bottom: 14px;
+  color: var(--paper);
+  font-size: 28px;
+  letter-spacing: 4px;
+}
+
+.archive-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.archive-card-wide {
+  grid-column: 1 / -1;
+  min-height: 220px;
+  background:
+    linear-gradient(135deg, rgba(75, 16, 16, 0.42), rgba(10, 11, 14, 0.96));
+}
+
+/* =========================
+   Search Page
+========================= */
+
+.search-panel {
+  max-width: 860px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+#searchInput {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 18px;
+  color: var(--paper);
+  background: rgba(10, 11, 14, 0.76);
+  border: 1px solid var(--line-strong);
+  font-family: inherit;
+  font-size: 16px;
+  outline: none;
+}
+
+#searchInput:focus {
+  border-color: rgba(178, 58, 54, 0.72);
+}
+
+#searchInput::placeholder {
+  color: var(--faint);
+}
+
+.filter-buttons {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-button {
+  min-height: 38px;
+  padding: 0 18px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--line);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.filter-button.active,
+.filter-button:hover {
+  color: var(--paper);
+  border-color: rgba(178, 58, 54, 0.62);
+  background: rgba(75, 16, 16, 0.42);
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.result-card {
+  padding: 26px;
+  background: rgba(10, 11, 14, 0.66);
+  border: 1px solid var(--line);
+}
+
+.result-card:hover {
+  border-color: rgba(178, 58, 54, 0.44);
+}
+
+.result-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+  color: var(--accent);
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.result-card h3 {
+  margin-bottom: 14px;
+  color: var(--paper);
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+.result-card p {
+  color: var(--muted);
+}
+
+.result-footer {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--faint);
+  font-size: 14px;
+}
+
+/* Mobile archive/search */
+@media (max-width: 860px) {
+  .archive-grid,
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-card-wide {
+    grid-column: auto;
+  }
+}
