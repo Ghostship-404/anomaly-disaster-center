@@ -165,16 +165,17 @@
         card.className = "result-card";
 
         card.innerHTML = `
-          <div class="result-meta">
-            <span>${item.code}</span>
-            <span>${item.type === "staff" ? "员工档案" : "怪异档案"}</span>
-          </div>
-          <h3>${item.title}</h3>
-          <p>${item.description}</p>
-          <div class="result-footer">
-            <span>状态：${item.status}</span>
-          </div>
-        `;
+  <div class="result-meta">
+    <span>${item.code}</span>
+    <span>${item.type === "staff" ? "员工档案" : "怪异档案"}</span>
+  </div>
+  <h3>${item.title}</h3>
+  <p>${item.description}</p>
+  <div class="result-footer">
+    <span>状态：${item.status}</span>
+    ${item.link ? `<a href="${item.link}">查阅完整档案</a>` : ""}
+  </div>
+`;
 
         results.appendChild(card);
       });
