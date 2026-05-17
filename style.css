@@ -939,3 +939,113 @@ td:first-child {
     width: 100px;
   }
 }
+
+/* =========================
+   Dossier Identification Block
+========================= */
+
+.dossier-section {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.dossier-sheet {
+  max-width: 920px;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, rgba(18, 20, 26, 0.96), rgba(10, 11, 14, 0.96));
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+}
+
+.dossier-header {
+  padding: 34px 38px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, rgba(75, 16, 16, 0.24), transparent 58%);
+}
+
+.dossier-kicker {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.dossier-header h2 {
+  color: var(--paper);
+  font-size: 30px;
+  letter-spacing: 4px;
+}
+
+.dossier-stamp {
+  padding: 9px 16px;
+  color: var(--paper);
+  border: 1px solid rgba(178, 58, 54, 0.68);
+  background: rgba(75, 16, 16, 0.28);
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+.dossier-table {
+  padding: 8px 38px 34px;
+}
+
+.dossier-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  border-bottom: 1px solid rgba(219, 213, 202, 0.11);
+}
+
+.dossier-row:last-child {
+  border-bottom: none;
+}
+
+.dossier-label {
+  padding: 17px 24px 17px 0;
+  color: var(--accent);
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  border-right: 1px solid rgba(219, 213, 202, 0.11);
+}
+
+.dossier-value {
+  padding: 17px 0 17px 26px;
+  color: var(--paper);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+@media (max-width: 860px) {
+  .dossier-header {
+    padding: 28px 24px 22px;
+    flex-direction: column;
+  }
+
+  .dossier-table {
+    padding: 4px 24px 26px;
+  }
+
+  .dossier-row {
+    grid-template-columns: 1fr;
+  }
+
+  .dossier-label {
+    padding: 15px 0 4px;
+    border-right: none;
+  }
+
+  .dossier-value {
+    padding: 0 0 15px;
+  }
+}
