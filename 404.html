@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 · 条目丢失</title>
+  <title>404 · 被覆盖的条目</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 
@@ -21,7 +21,7 @@
 
   <main class="page subpage notfound-page">
     <section class="page-title notfound-hero">
-      <p class="eyebrow">SYSTEM INTERFERENCE</p>
+      <p class="eyebrow">ARCHIVE INTERFERENCE</p>
 
       <div class="glitch-code" aria-label="404">
         <span>404</span>
@@ -29,48 +29,77 @@
         <span>404</span>
       </div>
 
-      <h1>该条目不存在，或已被怪异覆盖</h1>
+      <h1>你访问的条目已被覆盖</h1>
       <p>
-        你访问的页面未能从档案系统中稳定提取。该异常可能由链接失效、记录删除、权限不足，或怪异干扰引起。
+        档案系统未能稳定定位目标页面。该链接可能不存在，也可能曾经存在，并在你打开它之前被别的东西读取过。
       </p>
+
+      <div class="warning-whisper" id="warningWhisper">
+        请不要长时间停留在本页。
+      </div>
     </section>
 
     <section class="content-section anomaly-warning">
       <div class="section-heading">
-        <p class="eyebrow">INCIDENT NOTE</p>
+        <p class="eyebrow">SYSTEM NOTE</p>
         <h2>异常说明</h2>
       </div>
 
       <div class="prose">
         <p>
-          档案室记录显示，该页面曾经存在。
-          但其编号、标题与归档路径目前均无法互相对应。
+          站点记录显示，此路径曾在系统中留下访问痕迹，但当前归档结果无法对应任何有效页面。
         </p>
 
         <p>
-          若你并非主动访问此页，而是在一次跳转、检索或阅读过程中被引导至此，请暂时停止继续浏览，并确认你仍记得自己原本要查阅的内容。
+          若你并非主动输入该地址，而是在阅读、检索或跳转时被引导至此，请尝试回忆你原本打算查阅的对象。如果你已经无法回忆，请不要继续刷新。
         </p>
       </div>
 
       <div class="notfound-records">
         <div class="notfound-row">
           <span class="notfound-label">错误编号</span>
-          <span class="notfound-value">ERR-404 / FILE-LOST</span>
+          <span class="notfound-value">ERR-404 / PATH-ERASED</span>
         </div>
 
         <div class="notfound-row">
-          <span class="notfound-label">当前状态</span>
-          <span class="notfound-value">部分存在 / 无法稳定定位</span>
+          <span class="notfound-label">归档状态</span>
+          <span class="notfound-value">部分存在 / 无法稳定提取</span>
         </div>
 
         <div class="notfound-row">
-          <span class="notfound-label">风险评估</span>
+          <span class="notfound-label">影响等级</span>
           <span class="notfound-value">警戒</span>
         </div>
 
         <div class="notfound-row">
-          <span class="notfound-label">建议处置</span>
-          <span class="notfound-value">返回已知页面，避免重复刷新同一空白链接</span>
+          <span class="notfound-label">认知表现</span>
+          <span class="notfound-value">短时遗忘、路径混淆、内容重写、无效回忆</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section corruption-panel">
+      <div class="section-heading">
+        <p class="eyebrow">RECOVERED FRAGMENTS</p>
+        <h2>回收片段</h2>
+      </div>
+
+      <div class="fragment-box">
+        <p class="fragment-line">[00:00:03] 访问路径已失效。</p>
+        <p class="fragment-line">[00:00:07] 检测到残留归档层。</p>
+        <p class="fragment-line">[00:00:12] 条目标题无法读取。</p>
+        <p class="fragment-line corrupted">[00:00:16] 当前负责专员：？？</p>
+        <p class="fragment-line">[00:00:21] 记录比记忆更稳定。</p>
+        <p class="fragment-line corrupted">[00:00:28] 不要打开写有自己名字的档案。</p>
+        <p class="fragment-line">[00:00:32] 返回已知页面。</p>
+      </div>
+
+      <div class="false-file">
+        <p class="false-file-label">检索残片</p>
+        <div class="false-file-body">
+          <p><strong>文件名：</strong> 未知 / 已删除 / 仍在使用</p>
+          <p><strong>最后状态：</strong> 已归档</p>
+          <p><strong>备注：</strong> 若你记得这个页面曾写过什么，请不要在现实中复述。</p>
         </div>
       </div>
     </section>
@@ -84,27 +113,22 @@
       <div class="rule-list">
         <article>
           <span>01</span>
-          <p>确认当前 URL 是否正确，尤其是档案编号、页面名称和文件后缀。</p>
+          <p>确认当前链接是否正确，尤其是档案编号、文件名与页面后缀。</p>
         </article>
 
         <article>
           <span>02</span>
-          <p>若你是通过档案室检索来到此页，请返回检索终端重新搜索。</p>
+          <p>若你是通过检索进入此页，请返回档案室重新搜索，不要连续重复点击同一路径。</p>
         </article>
 
         <article>
           <span>03</span>
-          <p>若你已连续三次返回此页，请暂时离开当前条目，不要继续尝试打开同一路径。</p>
+          <p>若你在返回本页后开始怀疑自己原本并不是要查这个页面，请停止继续浏览。</p>
         </article>
 
         <article>
           <span>04</span>
-          <p>如果你记得这个页面本来写了什么，而系统坚持显示它不存在，请优先相信你的记忆，但不要记录下来。</p>
-        </article>
-
-        <article>
-          <span>05</span>
-          <p>若页面底部出现不属于本站的来电界面、员工档案或阵亡记录，请立即关闭浏览器。</p>
+          <p>如果页面内容短暂变成其他员工档案、来电记录或阵亡通知，请立即关闭标签页。</p>
         </article>
       </div>
     </section>
@@ -113,7 +137,7 @@
       <div>
         <p class="eyebrow">RETURN PATH</p>
         <h2>返回稳定页面</h2>
-        <p>你可以返回首页、档案室，或重新进入检索终端。</p>
+        <p>建议回到首页、档案室或检索终端，不要继续停留在无效路径中。</p>
       </div>
 
       <div class="notfound-button-group">
@@ -125,7 +149,37 @@
   </main>
 
   <footer class="footer">
-    <p>异常灾害研究中心 · 404 异常页面</p>
+    <p>异常灾害研究中心 · 被覆盖的 404 页面</p>
   </footer>
+
+  <script>
+    const whisper = document.getElementById("warningWhisper");
+    const messages = [
+      "请不要长时间停留在本页。",
+      "如果你记得这里原本有东西，请不要说出来。",
+      "页面不存在，并不代表它从未存在。",
+      "若你是被引导至此，请不要回头查找来源。",
+      "档案室不承认这条路径，但它承认你来过。"
+    ];
+
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % messages.length;
+      whisper.classList.remove("visible");
+      setTimeout(() => {
+        whisper.textContent = messages[index];
+        whisper.classList.add("visible");
+      }, 180);
+    }, 3600);
+
+    whisper.classList.add("visible");
+
+    const corruptedLines = document.querySelectorAll(".corrupted");
+    setInterval(() => {
+      corruptedLines.forEach(line => {
+        line.classList.toggle("active");
+      });
+    }, 1200);
+  </script>
 </body>
 </html>
