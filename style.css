@@ -1187,3 +1187,239 @@ td:first-child {
     width: 100%;
   }
 }
+
+/* =========================
+   404 / Disturbed Page
+========================= */
+
+.notfound-page {
+  max-width: 980px;
+}
+
+.notfound-hero {
+  border-bottom: none;
+}
+
+.glitch-code {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 22px;
+  font-family: "Courier New", monospace;
+  font-size: clamp(88px, 16vw, 220px);
+  line-height: 1;
+  letter-spacing: 12px;
+  color: var(--paper);
+  text-shadow: 0 0 22px rgba(178, 58, 54, 0.16);
+}
+
+.glitch-code span {
+  display: block;
+}
+
+.glitch-code span:nth-child(1) {
+  position: relative;
+  z-index: 3;
+}
+
+.glitch-code span:nth-child(2),
+.glitch-code span:nth-child(3) {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.glitch-code span:nth-child(2) {
+  color: rgba(178, 58, 54, 0.9);
+  transform: translate(-3px, 1px);
+  opacity: 0.42;
+  animation: glitchShiftA 2.8s infinite ease-in-out;
+}
+
+.glitch-code span:nth-child(3) {
+  color: rgba(255, 255, 255, 0.24);
+  transform: translate(3px, -1px);
+  opacity: 0.26;
+  animation: glitchShiftB 1.9s infinite ease-in-out;
+}
+
+@keyframes glitchShiftA {
+  0%, 100% { transform: translate(-3px, 1px); opacity: 0.35; }
+  18% { transform: translate(-8px, 0); opacity: 0.6; }
+  37% { transform: translate(2px, -1px); opacity: 0.2; }
+  59% { transform: translate(-4px, 2px); opacity: 0.5; }
+  81% { transform: translate(1px, 0); opacity: 0.28; }
+}
+
+@keyframes glitchShiftB {
+  0%, 100% { transform: translate(3px, -1px); opacity: 0.22; }
+  25% { transform: translate(7px, 1px); opacity: 0.36; }
+  50% { transform: translate(2px, 0); opacity: 0.15; }
+  75% { transform: translate(5px, -2px); opacity: 0.33; }
+}
+
+.warning-whisper {
+  margin-top: 28px;
+  min-height: 28px;
+  color: rgba(240, 231, 216, 0.76);
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  letter-spacing: 2px;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+
+.warning-whisper.visible {
+  opacity: 1;
+}
+
+.anomaly-warning {
+  position: relative;
+  overflow: hidden;
+}
+
+.anomaly-warning::before {
+  content: "INTERFERENCE";
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  color: rgba(178, 58, 54, 0.14);
+  font-family: "Courier New", monospace;
+  font-size: 32px;
+  letter-spacing: 4px;
+  pointer-events: none;
+}
+
+.notfound-records {
+  max-width: 760px;
+  margin: 28px auto 0;
+  border-top: 1px solid var(--line);
+}
+
+.notfound-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 22px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(219, 213, 202, 0.1);
+}
+
+.notfound-label {
+  color: var(--accent);
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.notfound-value {
+  color: var(--paper);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.corruption-panel {
+  position: relative;
+}
+
+.corruption-panel::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 48%;
+  height: 1px;
+  background: rgba(178, 58, 54, 0.16);
+  box-shadow: 0 0 12px rgba(178, 58, 54, 0.18);
+  pointer-events: none;
+}
+
+.fragment-box {
+  max-width: 760px;
+  margin: 0 auto 28px;
+  padding: 26px 28px;
+  background: rgba(10, 11, 14, 0.72);
+  border: 1px solid rgba(178, 58, 54, 0.2);
+  font-family: "Courier New", monospace;
+}
+
+.fragment-line {
+  margin: 0 0 10px;
+  color: rgba(240, 231, 216, 0.85);
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.fragment-line:last-child {
+  margin-bottom: 0;
+}
+
+.fragment-line.corrupted {
+  color: rgba(216, 196, 180, 0.9);
+  opacity: 0.78;
+  transition: 0.25s ease;
+}
+
+.fragment-line.corrupted.active {
+  color: rgba(178, 58, 54, 0.96);
+  text-shadow: 0 0 8px rgba(178, 58, 54, 0.28);
+  transform: translateX(1px);
+}
+
+.false-file {
+  max-width: 760px;
+  margin: 0 auto;
+  border: 1px dashed rgba(219, 213, 202, 0.24);
+  background: linear-gradient(135deg, rgba(75, 16, 16, 0.2), rgba(10, 11, 14, 0.78));
+}
+
+.false-file-label {
+  margin: 0;
+  padding: 14px 18px;
+  color: var(--accent);
+  border-bottom: 1px solid rgba(219, 213, 202, 0.08);
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.false-file-body {
+  padding: 18px;
+}
+
+.false-file-body p {
+  margin-bottom: 10px;
+}
+
+.false-file-body p:last-child {
+  margin-bottom: 0;
+}
+
+.notfound-actions {
+  align-items: stretch;
+}
+
+.notfound-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+@media (max-width: 860px) {
+  .notfound-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .notfound-button-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .notfound-button-group a {
+    width: 100%;
+  }
+
+  .fragment-box {
+    padding: 20px 18px;
+  }
+}
