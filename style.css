@@ -1049,3 +1049,141 @@ td:first-child {
     padding: 0 0 15px;
   }
 }
+
+/* =========================
+   404 / Corrupted Page
+========================= */
+
+.notfound-page {
+  max-width: 980px;
+}
+
+.notfound-hero {
+  border-bottom: none;
+}
+
+.glitch-code {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 22px;
+  font-family: "Courier New", monospace;
+  font-size: clamp(72px, 15vw, 180px);
+  line-height: 1;
+  letter-spacing: 10px;
+  color: var(--paper);
+}
+
+.glitch-code span {
+  display: block;
+}
+
+.glitch-code span:nth-child(1) {
+  position: relative;
+  z-index: 3;
+}
+
+.glitch-code span:nth-child(2),
+.glitch-code span:nth-child(3) {
+  position: absolute;
+  inset: 0;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.glitch-code span:nth-child(2) {
+  color: rgba(178, 58, 54, 0.9);
+  transform: translate(-2px, 0);
+  animation: glitchShiftA 2.6s infinite ease-in-out;
+}
+
+.glitch-code span:nth-child(3) {
+  color: rgba(255, 255, 255, 0.32);
+  transform: translate(2px, 0);
+  animation: glitchShiftB 1.9s infinite ease-in-out;
+}
+
+@keyframes glitchShiftA {
+  0%, 100% { transform: translate(-2px, 0); opacity: 0.35; }
+  20% { transform: translate(-5px, 1px); opacity: 0.55; }
+  40% { transform: translate(1px, -1px); opacity: 0.2; }
+  60% { transform: translate(-3px, 0); opacity: 0.6; }
+  80% { transform: translate(0, 1px); opacity: 0.28; }
+}
+
+@keyframes glitchShiftB {
+  0%, 100% { transform: translate(2px, 0); opacity: 0.22; }
+  25% { transform: translate(4px, -1px); opacity: 0.4; }
+  50% { transform: translate(1px, 1px); opacity: 0.16; }
+  75% { transform: translate(3px, 0); opacity: 0.34; }
+}
+
+.anomaly-warning {
+  position: relative;
+  overflow: hidden;
+}
+
+.anomaly-warning::before {
+  content: "INTERFERENCE";
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  color: rgba(178, 58, 54, 0.16);
+  font-family: "Courier New", monospace;
+  font-size: 32px;
+  letter-spacing: 4px;
+  pointer-events: none;
+}
+
+.notfound-records {
+  max-width: 760px;
+  margin: 28px auto 0;
+  border-top: 1px solid var(--line);
+}
+
+.notfound-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 22px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(219, 213, 202, 0.1);
+}
+
+.notfound-label {
+  color: var(--accent);
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.notfound-value {
+  color: var(--paper);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.notfound-actions {
+  align-items: stretch;
+}
+
+.notfound-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+@media (max-width: 860px) {
+  .notfound-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .notfound-button-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .notfound-button-group a {
+    width: 100%;
+  }
+}
